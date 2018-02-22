@@ -1,0 +1,42 @@
+@import '../../styles/variables';
+
+.Header__topBar {
+  background-color: $darkBlue;
+  padding: 1rem calc(50% - #{$largeWidth / 2});
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Header__topBar a {
+  color: white;
+  text-decoration: none;
+  padding: 0 1rem;
+}
+
+.Header__navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem calc(50% - #{$largeWidth / 2});
+}
+
+.Header__logo {
+  max-width: 250px;
+}
+
+.Header__navigationLink {
+  font-weight: bold;
+  color: $darkBlue;
+  padding: 0 1rem;
+  &:hover {
+    color: $lightBlue;
+  }
+}
+
+.Header__button {
+  color: $lightBlue;
+  font-weight: bold;
+  border: 1px solid $lightBlue;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+}

@@ -1,0 +1,43 @@
+@import '../../styles/variables';
+
+.Filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -4rem;
+  padding: 1rem 0;
+  border-radius: 10px;
+  background-color: $gray;
+}
+
+.Filter__text {
+  &-blue {
+    color: $lightBlue;
+  }
+
+  &-black {
+    color: $black;
+  }
+}
+
+.Filter__separator {
+  display: block;
+  width: 1px;
+  height: 50px;
+  content: '';
+  margin: 0 1rem;
+  background-color: $darkGray;
+}
+
+.Filter__form {
+  padding-left: 1rem;
+
+  label {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  input {
+    margin: 0 0.5rem 0 1.2rem;
+  }
+}

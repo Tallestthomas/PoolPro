@@ -31,7 +31,7 @@ const Header = () => (
         </a>
       </section>
     </nav>
-    <img src={WaterImage} alt="Water" />
+    <img className="Header__image" src={WaterImage} alt="Water" />
   </header>
 );
 

@@ -1,0 +1,5 @@
+@import '../../styles/variables';
+
+.DealerSelection {
+  padding: 0 calc(50% - #{$largeWidth / 2});
+}

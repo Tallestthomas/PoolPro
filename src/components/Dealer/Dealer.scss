@@ -1,0 +1,49 @@
+@import '../../styles/variables';
+
+.Dealer {
+  flex: 1 0 calc(33% - 2rem);
+  max-width: 33%;
+  text-align: center;
+  transition: all 0.35s;
+  margin: 0 1rem;
+  position: relative;
+  transform: translateY(50%);
+  opacity: 0;
+
+  &.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.Dealer__name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 4rem;
+  height: 100px;
+  border-bottom: 3px solid $gray;
+
+  h2 {
+    font-weight: 300;
+  }
+}
+
+.Dealer__phone {
+  font-size: 1.4rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+.Dealer__cta {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.75rem;
+}
+
+.Dealer__button {
+  color: $lightBlue;
+  outline: 0;
+  background: $white;
+  border: 1px solid $teal;
+}

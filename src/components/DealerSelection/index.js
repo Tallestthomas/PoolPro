@@ -1,5 +1,6 @@
 import React from 'react';
 import FilterResults from '../FilterResults';
+import Dealer from '../Dealer';
 import './DealerSelection.scss';
 
 class DealerSelection extends React.Component {
@@ -35,7 +36,7 @@ class DealerSelection extends React.Component {
     return (
       <section className="DealerSelection">
         <FilterResults dealers={7} zip={22826} onChange={this.filterResults} />
-        <ul>
+        <section className="DealerSelection__list">
           {this.state.dealers
             .filter(
               item =>
@@ -45,15 +46,14 @@ class DealerSelection extends React.Component {
                     )
                   : true,
             )
-            .map(dealer => (
-              <li key={dealer.data.companyID} style={{marginBottom: '14px'}}>
-                {dealer.data.name}
-                {dealer.data.certifications.map((cert, index) => (
-                  <p key={index}>{cert}</p>
-                ))}{' '}
-              </li>
+            .map((dealer, index) => (
+              <Dealer
+                key={dealer.data.companyID}
+                dealer={dealer.data}
+                delay={index}
+              />
             ))}
-        </ul>
+        </section>
       </section>
     );
   }

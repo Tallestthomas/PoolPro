@@ -1,6 +1,7 @@
 import React from 'react';
 import FilterResults from '../FilterResults';
 import Dealer from '../Dealer';
+import Modal from '../Modal';
 import './DealerSelection.scss';
 
 class DealerSelection extends React.Component {
@@ -11,6 +12,8 @@ class DealerSelection extends React.Component {
       zipcode: null,
       dealers: [],
       filters: [],
+      selectedPro: {},
+      toggleModal: false,
     };
   }
 
@@ -32,6 +35,22 @@ class DealerSelection extends React.Component {
         });
   };
 
+  toggleModal = event => {
+    this.setState({
+      selectedPro: this.state.dealers.find(
+        selected => selected.data.companyID.toString() === event.target.value,
+      ).data,
+      toggleModal: true,
+    });
+  };
+
+  closeModal = event => {
+    this.setState({
+      selectedPro: {},
+      toggleModal: false,
+    });
+  };
+
   render() {
     return (
       <section className="DealerSelection">
@@ -51,9 +70,15 @@ class DealerSelection extends React.Component {
                 key={dealer.data.companyID}
                 dealer={dealer.data}
                 delay={index}
+                onClick={this.toggleModal}
               />
             ))}
         </section>
+        <Modal
+          dealer={this.state.selectedPro || {}}
+          isActive={this.state.toggleModal}
+          closeModal={this.closeModal}
+        />
       </section>
     );
   }

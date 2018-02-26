@@ -37,7 +37,24 @@
     align-items: center;
   }
 
-  input {
+  input[type='checkbox'] {
+    position: relative;
+    z-index: -99999;
+  }
+
+  span {
+    display: block;
+    content: '';
+    height: 26px;
+    width: 26px;
+    border: 1px solid $darkGray;
+    background-color: $white;
+    transition: box-shadow 0.1s ease-out;
     margin: 0 0.5rem 0 1.2rem;
+    border-radius: 5px;
+  }
+
+  input[type='checkbox']:checked ~ span {
+    box-shadow: inset 0 0 0 8px $lightBlue;
   }
 }

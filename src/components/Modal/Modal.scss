@@ -1,0 +1,62 @@
+@import '../../styles/variables';
+
+.Modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.25s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+
+    .Modal__content {
+      transform: translateY(0);
+    }
+  }
+}
+
+.Modal__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($black, 0.5);
+  z-index: 10;
+}
+
+.Modal__content {
+  z-index: 11;
+  max-width: 720px;
+  width: 100%;
+  background-color: $white;
+  transform: translateY(50%);
+  transition: transform 0.25s;
+}
+
+.Modal__header {
+  background-color: $darkBlue;
+  color: $white;
+
+  h2,
+  h3 {
+    font-weight: 300;
+  }
+
+  h3 {
+    text-transform: uppercase;
+  }
+}
+
+.Modal__form {
+  display: flex;
+  flex-flow: column;
+}

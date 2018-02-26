@@ -1,0 +1,53 @@
+@import '../../styles/variables';
+
+.Footer {
+  background-color: $darkBlue;
+  padding-top: 2rem;
+  text-align: center;
+
+  a {
+    display: block;
+  }
+}
+
+.Footer__logo {
+  max-width: 190px;
+}
+
+.Footer__social {
+  display: flex;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  justify-content: center;
+  align-items: center;
+  color: $white;
+
+  p {
+    margin-right: 1.5rem;
+  }
+
+  img {
+    margin: 0 0.5rem;
+    max-width: 1.25rem;
+    max-height: 1.25rem;
+  }
+}
+
+.Footer__bottomBar {
+  background-color: $lightBlue;
+  margin-top: 1.5rem;
+  padding: 0.75rem;
+
+  a {
+    color: $white;
+    display: inline;
+    font-weight: 300;
+    font-size: 0.75rem;
+
+    &:not(:last-child):after {
+      content: '|';
+      display: inline;
+      padding: 0 1rem;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+@import './variables';
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(10deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(20deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes right-bounce {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(25%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 200px $darkBlue;
+  }
+}
+
+@keyframes scale {
+  0%,
+  100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1);
+  }
+}

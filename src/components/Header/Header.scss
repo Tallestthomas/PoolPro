@@ -22,6 +22,8 @@
 
 .Header__logo {
   max-width: 250px;
+  width: 100%;
+  height: auto;
 }
 
 .Header__navigationLink {
@@ -44,4 +46,7 @@
 .Header__image {
   position: relative;
   z-index: -1;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
 }

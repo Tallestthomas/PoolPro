@@ -1,0 +1,30 @@
+@mixin closeButton($color) {
+  content: '';
+  cursor: pointer;
+  height: 20px;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: 20px;
+
+  &:before,
+  &:after {
+    background-color: $color;
+    content: '';
+    display: block;
+    height: 3px;
+    transform-origin: center center;
+    width: 20px;
+  }
+
+  &:before {
+    transform: rotate(45deg) translateX(2px);
+  }
+
+  &:after {
+    transform: rotate(-45deg) translateX(2px);
+  }
+  &:hover {
+    animation: 0.5s wiggle;
+  }
+}

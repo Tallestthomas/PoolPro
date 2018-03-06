@@ -1,0 +1,210 @@
+@import '../../styles/variables';
+@import '../../styles/animation';
+@import '../../styles/mixins';
+
+.Header__topBar {
+  background-color: $darkBlue;
+  padding: 1rem calc(50% - #{$largeWidth / 2});
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.6rem;
+
+  @media screen and (max-width: 430px) {
+    display: none;
+  }
+}
+
+.Header__topBar a {
+  color: white;
+  text-decoration: none;
+  padding: 0 1rem;
+  display: inline-flex;
+  align-items: center;
+  img {
+    margin-left: 0.5rem;
+    max-width: 0.81rem;
+  }
+}
+
+.Header__navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-flow: row nowrap;
+  padding: 2rem calc(50% - #{$largeWidth / 2});
+
+  @media screen and (max-width: $largeWidth) {
+    padding: 2rem;
+  }
+
+  @media screen and (max-width: 420px) {
+    padding: 1rem;
+  }
+}
+
+.Header__logo {
+  max-width: 250px;
+  width: 100%;
+  height: auto;
+
+  @media screen and(max-width: 820px) {
+    max-width: 200px;
+  }
+
+  @media screen and (max-width: 420px) {
+    max-width: 150px;
+  }
+
+  @media screen and (max-width: 340px) {
+    max-width: 125px;
+  }
+}
+
+.Header__navigationLink {
+  font-weight: bold;
+  color: $darkBlue;
+  padding: 0 1rem;
+
+  &:hover {
+    color: $lightBlue;
+  }
+
+  img {
+    display: none;
+  }
+
+  @media screen and (max-width: 920px) {
+    font-size: 0.9rem;
+    padding: 0 0.5rem;
+  }
+
+  @media screen and (max-width: 760px) {
+    color: $black;
+    background-color: $darkGray;
+    padding: 2rem 1rem;
+    width: 100%;
+    margin: 0.1rem 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    img {
+      max-width: 1rem;
+      display: inline;
+    }
+
+    &:hover img {
+      animation: right-bounce 0.5s infinite;
+    }
+  }
+}
+
+.Header__button {
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid $lightBlue;
+  color: $lightBlue;
+  display: inline-flex;
+  font-weight: bold;
+  padding: 0.75rem;
+  transition: color 0.25s, border-color 0.25s;
+
+  img {
+    max-width: 0.75rem;
+    height: auto;
+    margin-right: 0.5rem;
+  }
+
+  &:hover {
+    border-color: $teal;
+    color: $teal;
+    img {
+      animation: top-bounce 0.7s infinite;
+    }
+  }
+
+  @media screen and (max-width: 775px) {
+    margin-left: auto;
+    font-size: 0.85rem;
+  }
+
+  @media screen and (max-width: 420px) {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    & span {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 340px) {
+    padding: 0.25rem 0.35rem;
+    img {
+      display: none;
+    }
+  }
+}
+
+.Header__image {
+  position: relative;
+  z-index: -1;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+
+.Header__mobileToggle {
+  margin-left: 1rem;
+  max-width: 54px;
+  cursor: pointer;
+  &:hover {
+    animation: wiggle 0.5s;
+  }
+  @media screen and (min-width: 760px) {
+    display: none;
+  }
+}
+
+.Header__LinkContainer {
+  margin-left: auto;
+  flex-flow: row wrap;
+  display: flex;
+  h3 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .Header__LinkContainer {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    background-color: $white;
+    border-top: 7px solid $teal;
+    width: 100%;
+    border-bottom: 7px solid $teal;
+    z-index: 10;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.25s;
+
+    &.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .Header__mobileCloseButton {
+      @include closeButton($teal);
+    }
+
+    h3 {
+      display: inline;
+      text-transform: uppercase;
+      padding: 2rem;
+      color: $lightBlue;
+    }
+  }
+}

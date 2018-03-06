@@ -21,6 +21,24 @@
   &:hover {
     transform: scale(1.02);
   }
+
+  @media screen and (max-width: 930px) {
+    flex: 1 0 calc(50% - 2rem);
+    max-width: calc(50% - 2rem);
+  }
+
+  @media screen and (max-width: 640px) {
+    flex: 1 0 100%;
+    max-width: 100%;
+    margin: 2rem 0;
+    border: none;
+    border-radius: none;
+    box-shadow: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
 }
 
 .Dealer__name {
@@ -45,7 +63,7 @@
   }
 
   &-mobile {
-    display: inline-flex;
+    display: none;
     align-items: center;
     background-color: $lightBlue;
     color: $white;
@@ -53,7 +71,8 @@
     padding: 0.25rem;
     padding-right: 0.75rem;
     border-radius: 3px;
-    display: none;
+    font-weight: bold;
+    transition: transform 0.25s;
 
     span {
       padding: 0.32rem 0.5rem 0;
@@ -61,9 +80,22 @@
     }
   }
 
+  &-mobile:hover {
+    transform: scale(1.02);
+  }
+
   &-image {
     max-width: 30px;
     max-height: 30px;
+  }
+
+  @media screen and (max-width: 420px) {
+    &-desktop {
+      display: none;
+    }
+    &-mobile {
+      display: inline-flex;
+    }
   }
 }
 
@@ -78,6 +110,7 @@
   color: $lightBlue;
   outline: 0;
   font-size: 1rem;
+  font-weight: bold;
   background: $white;
   padding: 0.5rem 1rem;
   border: 1px solid $teal;

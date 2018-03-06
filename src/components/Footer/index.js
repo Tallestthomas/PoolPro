@@ -4,6 +4,7 @@ import './Footer.scss';
 import FB from './facebook-icon.png';
 import Twitter from './twitter-icon.png';
 import YT from './youtube-icon.png';
+import ActionIcon from '../Header/action-commercial-icon.png';
 
 const Footer = () => (
   <footer className="Footer">
@@ -23,6 +24,13 @@ const Footer = () => (
       </a>
     </div>
     <div className="Footer__bottomBar">
+      <div className="mobileFooter">
+        <a href="#dealers">Dealers and Distributors</a>
+        <a href="#commercial">
+          Commercial Service
+          <img src={ActionIcon} alt="Commercial Service" />
+        </a>
+      </div>
       <a href="#home">&copy; 2017 Pool Pros</a>
       <a href="#privacy">Privacy Policy</a>
       <a href="#terms">Terms and Conditions</a>

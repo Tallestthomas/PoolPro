@@ -91,11 +91,16 @@ class Modal extends React.Component {
                 <img className="valid" src={Check} alt="valid" />
               </label>
               <label htmlFor="comments">
-                Comments or questions
+                Comments or questions{' '}
+                <span className="labelOptional">optional</span>
                 <textarea id="comments" name="comments" />
               </label>
               <div className="Modal__radio-buttons">
-                <p>Do you currently own a pool or spa?</p>
+                <p>
+                  Do you currently own a pool or spa?<span className="labelOptional">
+                    optional
+                  </span>
+                </p>
                 <label className="radioButton">
                   <input
                     checked={this.state.selectedOption === 'yes'}
@@ -120,7 +125,8 @@ class Modal extends React.Component {
                 </label>
               </div>
               <button type="submit" className="Modal__submit">
-                Send my email<img src={Arrow} alt="Green Arrow" />
+                Send&nbsp;<span>my email</span>
+                <img src={Arrow} alt="Green Arrow" />
               </button>
             </form>
             <section

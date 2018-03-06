@@ -14,6 +14,7 @@ class DealerSelection extends React.Component {
       filters: [],
       selectedPro: {},
       toggleModal: false,
+      filtersToggled: false,
     };
   }
 
@@ -42,6 +43,7 @@ class DealerSelection extends React.Component {
       ).data,
       toggleModal: true,
     });
+    document.body.classList.add('noscroll');
   };
 
   closeModal = event => {
@@ -49,12 +51,23 @@ class DealerSelection extends React.Component {
       selectedPro: {},
       toggleModal: false,
     });
+    document.body.classList.remove('noscroll');
+  };
+
+  toggleFilters = async event => {
+    await this.setState({filtersToggled: !this.state.filtersToggled});
   };
 
   render() {
     return (
       <section className="DealerSelection">
-        <FilterResults dealers={7} zip={22826} onChange={this.filterResults} />
+        <FilterResults
+          dealers={7}
+          zip={22826}
+          onChange={this.filterResults}
+          toggled={this.state.filtersToggled}
+          toggleFilter={this.toggleFilters}
+        />
         <section className="DealerSelection__list">
           {this.state.dealers
             .filter(

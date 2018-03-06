@@ -8,15 +8,78 @@
   padding: 1rem 0;
   border-radius: 10px;
   background-color: $gray;
+  flex-flow: row wrap;
+
+  @media screen and (max-width: 760px) {
+    margin-top: 0;
+  }
+
+  @media screen and (max-width: 420px) {
+    justify-content: space-around;
+  }
 }
 
 .Filter__text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   &-blue {
     color: $lightBlue;
   }
 
   &-black {
     color: $black;
+    span {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 420px) {
+    width: calc(100% - 2rem);
+    &-black {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      align-self: stretch;
+      font-size: 0.9rem;
+      border: 1px solid $darkGray;
+      border-bottom: none;
+      padding: 0.5rem;
+      background-color: $white;
+      margin-left: auto;
+    }
+  }
+}
+
+.Filter__toggle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 50px;
+  width: 100%;
+  height: 50px;
+  border: 1px solid $darkGray;
+  border-bottom: none;
+  transition: transform 0.25s;
+
+  span {
+    width: 20px;
+    height: 20px;
+    margin-left: 1rem;
+    content: '';
+    border-left: 10px solid $black;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    transition: transform 0.25s;
+    transform-origin: left;
+  }
+  &.active span {
+    transform: rotate(90deg);
+  }
+
+  @media screen and (min-width: 420px) {
+    display: none;
   }
 }
 
@@ -27,10 +90,15 @@
   content: '';
   margin: 0 1rem;
   background-color: $darkGray;
+
+  @media screen and (max-width: 420px) {
+    display: none;
+  }
 }
 
 .Filter__form {
   padding-left: 1rem;
+  display: flex;
 
   label {
     display: inline-flex;
@@ -56,5 +124,70 @@
 
   input[type='checkbox']:checked ~ span {
     box-shadow: inset 0 0 0 8px $lightBlue;
+  }
+
+  @media screen and (max-width: 420px) {
+    background-color: $white;
+    display: none;
+    flex-flow: column;
+    padding: 1rem 0;
+    width: calc(100% - 2rem);
+    border: 2px solid $darkGray;
+
+    &.active {
+      display: flex;
+    }
+
+    span {
+      margin-left: 0;
+    }
+  }
+}
+
+.Filter__tooltip {
+  position: relative;
+  margin-left: 0.5rem;
+  margin-top: 0.25rem;
+  position: relative;
+
+  img {
+    max-width: 22px;
+  }
+
+  &-content {
+    opacity: 0;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: -1rem;
+    transform: translate(-45%, -70%);
+    width: 250px;
+    background-color: $teal;
+    color: $white;
+    transition: transform 0.25s, opacity 0.25s;
+    padding: 0.25rem;
+    font-size: 0.8rem;
+    border-radius: 10px;
+    z-index: -1;
+  }
+
+  &-content:after {
+    display: block;
+    position: absolute;
+    content: '';
+    bottom: -10px;
+    left: 50%;
+    margin-left: -10px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid $teal;
+  }
+
+  &:hover &-content {
+    opacity: 1;
+    transform: translate(-45%, -100%);
+    z-index: 10;
   }
 }
